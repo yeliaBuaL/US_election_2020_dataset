@@ -1,0 +1,95 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "2020 US Election Results",
+  "width": 800,
+  "height": 400,
+  "projection": {"type": "albersUsa"},
+  "layer":[
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/yeliaBuaL/US_election_2020_dataset/main/us_election_map_graticules.json",
+        "format": {"type": "topojson", "feature": "ne_110m_graticules_10"}
+      },
+      "mark": {"type": "geoshape","fill": "transparent", "stroke": "black"}
+    },
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/yeliaBuaL/US_election_2020_dataset/main/us_election_map_graticules.json",
+        "format": {"type": "topojson", "feature": "ne_110m_admin_1_states_provinces"}
+      },
+      "mark": {"type": "geoshape", "fill": "lightgray", "stroke": "black"}
+    },
+    {
+      "transform": [
+        {
+          "lookup": "properties.name",
+          "from": {
+            "data": {
+              "url": "https://raw.githubusercontent.com/yeliaBuaL/US_election_2020_dataset/main/US_election_2020_results_by_state_V2.csv"
+            },
+            "key": "State",
+            "fields": ["Winning Party", "Winning % margin"]
+          }
+        }
+      ],
+      "mark": {"type": "geoshape"},
+      "encoding": {
+        "color": {
+          "field": "Winning Party",
+          "type": "nominal",
+          "scale": {"range": ["blue", "red"]},
+          "title": "Winning Party"
+        },
+        "opacity": {
+          "field": "Winning % margin",
+          "type": "quantitative",
+          "scale": {"domain": [-50, 50], "range": [0.1, 1]}, 
+          "title": "Winning % margin"
+        },
+        "tooltip": [
+          {"field": "properties.name", "type": "nominal", "title": "State"},
+          {"field": "Winning Party", "type": "nominal", "title": "Winning Party"},
+          {"field": "Winning % margin", "type": "quantitative", "title": "Winning % margin"}
+        ]
+      },
+      "data": {
+        "url": "https://raw.githubusercontent.com/yeliaBuaL/US_election_2020_dataset/main/us_election_map_graticules.json",
+        "format": {"type": "topojson", "feature": "ne_110m_admin_1_states_provinces"}
+      },
+      "mark": {"type": "geoshape", "fill": "lightgray", "stroke": "white"},
+      "transform": [
+        {
+          "lookup": "properties.name",
+          "from": {
+            "data": {
+              "url": "https://raw.githubusercontent.com/yeliaBuaL/US_election_2020_dataset/main/US_election_2020_results_by_state_V2.csv"
+            },
+            "key": "State",
+            "fields": ["Winning Party", "Winning % margin"]
+          }
+        }
+      ],
+      "mark": {"type": "geoshape"},
+      "encoding": {
+        "color": {
+          "field": "Winning Party",
+          "type": "nominal",
+          "scale": {"range": ["blue", "red"]},
+          "title": "Winning Party"
+        },
+        "opacity": {
+          "field": "Winning % margin",
+          "type": "quantitative",
+          "scale": {"domain": [-50, 50], "range": [0.1, 1]}, 
+          "title": "Winning % margin"
+        },
+        "tooltip": [
+          {"field": "properties.name", "type": "nominal", "title": "State"},
+          {"field": "Winning Party", "type": "nominal", "title": "Winning Party"},
+          {"field": "Winning % margin", "type": "quantitative", "title": "Winning % margin"}
+        ]
+      }
+    }
+  ]
+  
+}
