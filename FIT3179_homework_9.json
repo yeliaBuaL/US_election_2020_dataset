@@ -103,7 +103,6 @@
         {"field": "DEM total votes", "title": "DEM Votes"},
         {"field": "REP total votes", "title": "REP Votes"},
         {"field": "Winning % margin", "title": "Winning % Margin"},
-        {"field": "Margin", "title": "Margin"},
         {"field": "Turnout", "title": "Turnout"},
         {"field": "Region", "title": "Region"},
         {"field": "VEP", "title": "VEP"}
