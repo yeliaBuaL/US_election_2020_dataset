@@ -7,7 +7,6 @@
       "url": "https://raw.githubusercontent.com/yeliaBuaL/US_election_2020_dataset/main/US_election_2020_results_by_state_V3.csv",
       "format": {"type": "csv"}
     },
-    "mark": {"type": "circle"},
     "params": [
       {
         "name": "Region_Selection",
@@ -33,19 +32,19 @@
       {
         "name": "PartySelection",
         "bind": {
-            "input": "select",
-            "options": [
-              null,
-              "DEM",
-              "REP"
-            ],
-            "labels": [
-              "Show All",
-              "DEM",
-              "REP"
-            ],
-            "name": "Select Winning Party:"
-          }
+          "input": "select",
+          "options": [
+            null,
+            "DEM",
+            "REP"
+          ],
+          "labels": [
+            "Show All",
+            "DEM",
+            "REP"
+          ],
+          "name": "Select Winning Party:"
+        }
       },
       {
         "name": "TurnoutSlider",
@@ -60,7 +59,7 @@
     ],
     "transform": [
       {
-        "filter":  "Region_Selection == null || datum.Region == Region_Selection" 
+        "filter": "Region_Selection == null || datum.Region == Region_Selection"
       },
       {
         "filter": "PartySelection == null || datum['Winning_Party'] == PartySelection"
@@ -72,41 +71,127 @@
         "filter": "datum.VEP >= VEPSlider"
       }
     ],
-    "encoding": {
-      "x": {
-        "field": "Turnout",
-        "type": "quantitative",
-        "axis": {"title": "Turnout"},
-        "scale": {"domain": [50, 90]}
+    "layer": [
+      {
+        "mark": {"type": "circle"},
+        "encoding": {
+          "x": {
+            "field": "Turnout",
+            "type": "quantitative",
+            "axis": {"title": "Turnout"},
+            "scale": {"domain": [50, 90]}
+          },
+          "y": {
+            "field": "Winning % margin",
+            "type": "quantitative",
+            "axis": {"title": "Winning % Margin"},
+            "sort": {"field": "Winning % margin"}
+          },
+          "size": {
+            "field": "VEP",
+            "type": "quantitative",
+            "title": "VEP",
+            "scale": {"type": "sqrt"}
+          },
+          "color": {
+            "field": "Region",
+            "type": "nominal",
+            "scale": {"scheme": "dark2"}
+          },
+          "tooltip": [
+            {"field": "State", "title": "State"},
+            {"field": "Winning_Party", "title": "Winning Party"},
+            {"field": "Difference", "title": "Difference"},
+            {"field": "DEM total votes", "title": "DEM Votes", "format": ".0f"},
+            {"field": "REP total votes", "title": "REP Votes", "format": ".0f"},
+            {"field": "Winning % margin", "title": "Winning % Margin", "format": "0.2f"},
+            {"field": "Turnout", "title": "Turnout", "format": ".2f"},
+            {"field": "Region", "title": "Region"},
+            {"field": "VEP", "title": "VEP", "format": ".0s"}
+          ]
+        }
       },
-      "y": {
-        "field": "Winning % margin",
-        "type": "quantitative",
-        "axis": {"title": "Winning % Margin"},
-        "sort": {"field": "Winning % margin"}
+      {
+        "mark": {
+          "type": "text",
+          "align": "left",
+          "baseline": "top",
+          "fontSize": 11.5,
+          "fontStyle": "italic"
+        },
+        "encoding": {
+          "text": {
+            "condition": {
+              "test": "datum['State'] == 'Wisconsin' || datum['State'] == 'Michigan' || datum['State'] == 'Pennsylvania' || datum['State'] == 'Arizona' || datum['State'] == 'Georgia'",
+              "value": "Swing State"
+            },
+            "value": ""
+          },
+          "x": {"field": "Turnout", "type": "quantitative"},
+          "y": {"field": "Winning % margin", "type": "quantitative"},
+          "opacity": {
+            "condition": {
+              "test": "datum['State'] == 'Wisconsin' || datum['State'] == 'Michigan' || datum['State'] == 'Pennsylvania' || datum['State'] == 'Arizona' || datum['State'] == 'Georgia'",
+              "value": 1
+            },
+            "value": 0
+          }
+        }
       },
-      "size": {
-        "field": "VEP",
-        "type": "quantitative",
-        "title": "VEP",
-        "scale": {"type": "sqrt"}
+      {
+        "mark": {
+          "type": "text",
+          "align": "left",
+          "baseline": "top",
+          "fontSize": 11.5,
+          "fontStyle": "italic"
+        },
+        "encoding": {
+          "text": {
+            "condition": {
+              "test": "datum['State'] == 'California' || datum['State'] == 'New York' || datum['State'] == 'Massachusetts' || datum['State'] == 'Illinois' || datum['State'] == 'Washington'",
+              "value": "DEM Stronghold"
+            },
+            "value": ""
+          },
+          "x": {"field": "Turnout", "type": "quantitative"},
+          "y": {"field": "Winning % margin", "type": "quantitative"},
+          "opacity": {
+            "condition": {
+              "test": "datum['State'] == 'California' || datum['State'] == 'New York' || datum['State'] == 'Massachusetts' || datum['State'] == 'Illinois' || datum['State'] == 'Washington'",
+              "value": 1
+            },
+            "value": 0
+          }
+        }
       },
-      "color": {
-        "field": "Region",
-        "type": "nominal",
-        "scale": {"scheme": "dark2"}
-      },
-      "tooltip": [
-        {"field": "State", "title": "State"},
-        {"field": "Winning_Party", "title": "Winning Party"},
-        {"field": "Difference", "title": "Difference"},
-        {"field": "DEM total votes", "title": "DEM Votes"},
-        {"field": "REP total votes", "title": "REP Votes"},
-        {"field": "Winning % margin", "title": "Winning % Margin"},
-        {"field": "Turnout", "title": "Turnout"},
-        {"field": "Region", "title": "Region"},
-        {"field": "VEP", "title": "VEP"}
-      ]
-    }
+      {
+        "mark": {
+          "type": "text",
+          "align": "left",
+          "baseline": "top",
+          "fontSize": 11.5,
+          "fontStyle": "italic"
+        },
+        "encoding": {
+          "text": {
+            "condition": {
+              "test": "datum['State'] == 'Texas' || datum['State'] == 'Mississippi' || datum['State'] == 'Alabama' || datum['State'] == 'Idaho' || datum['State'] == 'Wyoming'",
+              "value": "REP Stronghold"
+            },
+            "value": ""
+          },
+          "x": {"field": "Turnout", "type": "quantitative"},
+          "y": {"field": "Winning % margin", "type": "quantitative"},
+          "opacity": {
+            "condition": {
+              "test": "datum['State'] == 'Texas' || datum['State'] == 'Mississippi' || datum['State'] == 'Alabama' || datum['State'] == 'Idaho' || datum['State'] == 'Wyoming'",
+              "value": 1
+            },
+            "value": 0
+          }
+        }
+      }
+    ]
   }
   
