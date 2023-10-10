@@ -1,0 +1,113 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 800,
+    "height": 600,
+    "title": "US Election 2020 Bubble Chart",
+    "data": {
+      "url": "https://raw.githubusercontent.com/yeliaBuaL/US_election_2020_dataset/main/US_election_2020_results_by_state_V3.csv",
+      "format": {"type": "csv"}
+    },
+    "mark": {"type": "circle"},
+    "params": [
+      {
+        "name": "Region_Selection",
+        "bind": {
+          "input": "select",
+          "options": [
+            null,
+            "South",
+            "West",
+            "Northeast",
+            "Midwest"
+          ],
+          "labels": [
+            "Show All",
+            "South",
+            "West",
+            "Northeast",
+            "Midwest"
+          ],
+          "name": "Select Region:"
+        }
+      },
+      {
+        "name": "PartySelection",
+        "bind": {
+            "input": "select",
+            "options": [
+              null,
+              "DEM",
+              "REP"
+            ],
+            "labels": [
+              "Show All",
+              "DEM",
+              "REP"
+            ],
+            "name": "Select Winning Party:"
+          }
+      },
+      {
+        "name": "TurnoutSlider",
+        "value": [50, 100],
+        "bind": {"input": "range", "min": 0, "max": 100, "step": 1, "name": "Minimum Turnout (%):"}
+      },
+      {
+        "name": "VEPSlider",
+        "value": [0, 30000000],
+        "bind": {"input": "range", "min": 0, "max": 30000000, "step": 100000, "name": "Minimum VEP:"}
+      }
+    ],
+    "transform": [
+      {
+        "filter":  "Region_Selection == null || datum.Region == Region_Selection" 
+      },
+      {
+        "filter": "PartySelection == null || datum['Winning_Party'] == PartySelection"
+      },
+      {
+        "filter": "datum.Turnout >= TurnoutSlider"
+      },
+      {
+        "filter": "datum.VEP >= VEPSlider"
+      }
+    ],
+    "encoding": {
+      "x": {
+        "field": "Turnout",
+        "type": "quantitative",
+        "axis": {"title": "Turnout"},
+        "scale": {"domain": [50, 90]}
+      },
+      "y": {
+        "field": "Winning % margin",
+        "type": "quantitative",
+        "axis": {"title": "Winning % Margin"},
+        "sort": {"field": "Winning % margin"}
+      },
+      "size": {
+        "field": "VEP",
+        "type": "quantitative",
+        "title": "VEP",
+        "scale": {"type": "sqrt"}
+      },
+      "color": {
+        "field": "Region",
+        "type": "nominal",
+        "scale": {"scheme": "dark2"}
+      },
+      "tooltip": [
+        {"field": "State", "title": "State"},
+        {"field": "Winning_Party", "title": "Winning Party"},
+        {"field": "Difference", "title": "Difference"},
+        {"field": "DEM total votes", "title": "DEM Votes"},
+        {"field": "REP total votes", "title": "REP Votes"},
+        {"field": "Winning % margin", "title": "Winning % Margin"},
+        {"field": "Margin", "title": "Margin"},
+        {"field": "Turnout", "title": "Turnout"},
+        {"field": "Region", "title": "Region"},
+        {"field": "VEP", "title": "VEP"}
+      ]
+    }
+  }
+  
