@@ -9,7 +9,7 @@
     },
     "transform": [
       {
-        "calculate": "{'Democrat': 'https://upload.wikimedia.org/wikipedia/commons/9/93/Democratic_Disc.svg', 'Republican': 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Republican_Disc.svg/1200px-Republican_Disc.svg.png', 'Independent': 'https://upload.wikimedia.org/wikipedia/en/thumb/d/db/Constitution_Party_%28USA%29_logo.svg/1200px-Constitution_Party_%28USA%29_logo.svg.png', 'Vice President Kamala Harris (DEM)': 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Seal_of_the_Vice_President_of_the_United_States.svg/200px-Seal_of_the_Vice_President_of_the_United_States.svg.png'}[datum.Party]",
+        "calculate": "{'Democrat': 'https://upload.wikimedia.org/wikipedia/commons/9/93/Democratic_Disc.svg', 'Republican': 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Republican_Disc.svg/1200px-Republican_Disc.svg.png', 'Independent': 'https://upload.wikimedia.org/wikipedia/en/thumb/d/db/Constitution_Party_%28USA%29_logo.svg/1200px-Constitution_Party_%28USA%29_logo.svg.png', 'Vice President of the United States': 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Seal_of_the_Vice_President_of_the_United_States.svg/200px-Seal_of_the_Vice_President_of_the_United_States.svg.png'}[datum.Party]",
         "as": "image_url"
       },
       {
@@ -30,7 +30,7 @@
             "field": "Party",
             "type": "nominal",
             "axis": {"title": ""},
-            "sort": ["Republican", "Democrat", "Independent", "Vice President Kamala Harris (DEM)"]
+            "sort": ["Republican", "Democrat", "Independent", "Vice President of the United States"]
           },
           "url": {"field": "image_url", "type": "nominal"}
         }
@@ -39,7 +39,7 @@
         "mark": {"type": "text", "align": "left", "baseline": "middle", "dx": 30},
         "encoding": {
           "x": {"aggregate": "max", "field": "rank", "type": "quantitative", "axis": null},
-          "y": {"field": "Party", "type": "nominal", "sort": ["Republican", "Democrat", "Independent", "Vice President Kamala Harris (DEM)"]},
+          "y": {"field": "Party", "type": "nominal", "sort": ["Republican", "Democrat", "Independent", "Vice President of the United States"]},
           "text": {"aggregate": "count", "type": "quantitative"}
         }
       },
@@ -55,8 +55,8 @@
         "mark": {"type": "text", "align": "left", "baseline": "middle", "dx": -625, "dy": 0},
         "encoding": {
           "x": {"value": 700},
-          "y": {"datum": "Vice President Kamala Harris (DEM)"},
-          "text": {"value": "Vice President Kamala Harris is a Democrat"}
+          "y": {"datum": "Vice President of the United States"},
+          "text": {"value": "Vice President Kamala Harris (Democrat)"}
         }
       }
     ]

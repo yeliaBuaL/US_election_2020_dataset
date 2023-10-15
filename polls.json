@@ -1,189 +1,75 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "description": "Poll numbers for Biden and Trump by month with rolling mean lines",
-    "title": "Poll numbers for Biden and Trump",
-    "data": {
-        "url": "https://raw.githubusercontent.com/yeliaBuaL/US_election_2020_dataset/main/polls.csv"
-    },
-    "transform": [
-        {
-            "calculate": "indexof(['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'], datum.Month) + 1",
-            "as": "month_num"
-        },
-        {
-            "window": [
-                {
-                    "op": "mean",
-                    "field": "Biden (D)",
-                    "as": "Biden_rolling_mean"
-                },
-                {
-                    "op": "mean",
-                    "field": "Trump (R)",
-                    "as": "Trump_rolling_mean"
-                }
-            ],
-            "frame": [-1, 1],
-            "sort": [{"field": "month_num"}]
-        }
-    ],
+    "description": "Scatterplot with a 30-day rolling mean for Biden (D) and Trump (R) approval ratings.",
     "width": 1000,
     "height": 400,
+    "data": {"url": "https://raw.githubusercontent.com/yeliaBuaL/US_election_2020_dataset/main/polls.csv"},
+    "transform": [
+      {
+        "window": [
+          {
+            "field": "Biden (D)",
+            "op": "mean",
+            "as": "rolling_mean_biden"
+          },
+          {
+            "field": "Trump (R)",
+            "op": "mean",
+            "as": "rolling_mean_trump"
+          }
+        ],
+        "frame": [-15, 15]
+      }
+    ],
     "encoding": {
-        "x": {
-            "field": "month_num",
-            "type": "quantitative",
-            "title": "Month",
-            "axis": {
-                "title": "Month",
-                "values": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
-                "labelExpr": "['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'][datum.value-1]"
-            }
-        }
+      "x": {
+        "field": "Start Date",
+        "type": "temporal",
+        "title": "Date",
+        "axis": {"format": "%B"} 
+      },
+      "y": {
+        "field": "Biden (D)",
+        "type": "quantitative",
+        "title": "Poll Share (%)",
+        "scale": {"domain": [30, 60]}
+      }
     },
     "layer": [
-        {
-            "mark": "point",
-            "encoding": {
-                "y": {
-                    "field": "Biden (D)",
-                    "type": "quantitative",
-                    "title": "Poll Share(%)",
-                    "scale": {
-                        "domain": [30, 60]
-                    }
-                },
-                "color": {
-                    "value": "blue"
-                }
-            }
-        },
-        {
-            "mark": "point",
-            "encoding": {
-                "y": {
-                    "field": "Trump (R)",
-                    "type": "quantitative",
-                    "scale": {
-                        "domain": [30, 60]
-                    }
-                },
-                "color": {
-                    "value": "red"
-                }
-            }
-        },
-        {
-            "mark": "line",
-            "encoding": {
-                "y": {
-                    "field": "Biden_rolling_mean",
-                    "type": "quantitative"
-                },
-                "color": {
-                    "value": "blue"
-                }
-            }
-        },
-        {
-            "mark": "line",
-            "encoding": {
-                "y": {
-                    "field": "Trump_rolling_mean",
-                    "type": "quantitative"
-                },
-                "color": {
-                    "value": "red"
-                }
-            }
-        },
-        {
-            "mark": {
-                "type": "text",
-                "align": "center",
-                "baseline": "bottom",
-                "dx": 0,
-                "dy": -10,
-                "fontSize": 12,
-                "fontWeight": "bold"
-            },
-            "encoding": {
-                "x": {
-                    "value": 425
-                },
-                "y": {
-                    "value": 200
-                },
-                "text": {
-                    "value": "Death of George Floyd"
-                }
-            }
-        },
-        {
-            "mark": {
-                "type": "text",
-                "align": "center",
-                "baseline": "bottom",
-                "dx": 0,
-                "dy": -10,
-                "fontSize": 12,
-                "fontWeight": "bold"
-            },
-            "encoding": {
-                "x": {
-                    "value": 920
-                },
-                "y": {
-                    "value": 200
-                },
-                "text": {
-                    "value": "Voting Day"
-                }
-            }
-        },
-        {
-            "mark": {
-                "type": "text",
-                "align": "center",
-                "baseline": "bottom",
-                "dx": 0,
-                "dy": -10,
-                "fontSize": 12,
-                "fontWeight": "bold"
-            },
-            "encoding": {
-                "x": {
-                    "value": 250
-                },
-                "y": {
-                    "value": 200
-                },
-                "text": {
-                    "value": "Trump Declares "
-                }
-            }
-        },
-        {
-            "mark": {
-                "type": "text",
-                "align": "center",
-                "baseline": "bottom",
-                "dx": 0,
-                "dy": -10,
-                "fontSize": 12,
-                "fontWeight": "bold"
-            },
-            "encoding": {
-                "x": {
-                    "value": 250
-                },
-                "y": {
-                    "value": 220
-                },
-                "text": {
-                    "value": "Pandemic Emergency"
-                }
-            }
+      {
+        "mark": {"type": "point", "opacity": 0.3, "color": "blue"},
+        "encoding": {
+          "y": {"field": "Biden (D)"},
+          "legend": {"title": "Biden (D)"}
         }
+      },
+      {
+        "mark": {"type": "line", "color": "blue", "size": 3},
+        "encoding": {
+          "y": {"field": "rolling_mean_biden"},
+          "tooltip": [
+            {"field": "Start Date", "type": "temporal", "title": "Date"},
+            {"field": "rolling_mean_biden", "type": "quantitative", "title": "Average Poll Share (%)"}
+          ]
+        }
+      },
+      {
+        "mark": {"type": "point", "opacity": 0.3, "color": "red"},
+        "encoding": {
+          "y": {"field": "Trump (R)"},
+          "legend": {"title": "Trump (R)"}
+        }
+      },
+      {
+        "mark": {"type": "line", "color": "red", "size": 3},
+        "encoding": {
+          "y": {"field": "rolling_mean_trump"},
+          "tooltip": [
+            {"field": "Start Date", "type": "temporal", "title": "Date"},
+            {"field": "rolling_mean_trump", "type": "quantitative", "title": "Average Poll Share (%)"}
+          ]
+        }
+      }
     ]
-}
+  }
+  
