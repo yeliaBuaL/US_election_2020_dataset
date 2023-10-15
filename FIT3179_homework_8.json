@@ -1,8 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": "2020 US Election Results",
-  "width": 800,
-  "height": 400,
+  "title": "2020 US Electoral Map",
+  "width": 1600,
+  "height": 800,
   "projection": {"type": "albersUsa"},
   "layer":[
     {
@@ -43,9 +43,10 @@
         "opacity": {
           "field": "Winning % margin",
           "type": "quantitative",
-          "scale": {"domain": [-50, 50], "range": [0.1, 1]}, 
+          "scale": {"domain": [1, 50], "range": [1, 2]}, 
           "title": "Winning % margin"
         },
+        
         "tooltip": [
           {"field": "properties.name", "type": "nominal", "title": "State"},
           {"field": "Winning Party", "type": "nominal", "title": "Winning Party"},
@@ -80,7 +81,7 @@
         "opacity": {
           "field": "Winning % margin",
           "type": "quantitative",
-          "scale": {"domain": [-50, 50], "range": [0.1, 1]}, 
+          "scale": {"domain": [0, 45], "range": [0.1, 1]}, 
           "title": "Winning % margin"
         },
         "tooltip": [
