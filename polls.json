@@ -3,6 +3,7 @@
     "description": "Scatterplot with a 30-day rolling mean for Biden (D) and Trump (R) approval ratings.",
     "width": 1000,
     "height": 400,
+    "title": "Biden Vs. Trump Approval Ratings Pre-Election",
     "data": {"url": "https://raw.githubusercontent.com/yeliaBuaL/US_election_2020_dataset/main/polls.csv"},
     "transform": [
       {
@@ -69,7 +70,127 @@
             {"field": "rolling_mean_trump", "type": "quantitative", "title": "Average Poll Share (%)"}
           ]
         }
-      }
+      },
+      {
+        "mark": {
+            "type": "text",
+            "align": "center",
+            "baseline": "bottom",
+            "dx": 0,
+            "dy": -10,
+            "fontSize": 12,
+            "fontWeight": "bold",
+            "color": "black"
+        },
+        "encoding": {
+            "x": {
+                "value": 150
+            },
+            "y": {
+                "value": 300
+            },
+            "text": {
+                "value": "Trump Declares Pandemic"
+            },
+            "color": {"value": "black"}
+        }
+    },
+    {
+        "mark": {
+            "type": "text",
+            "align": "center",
+            "baseline": "bottom",
+            "dx": 0,
+            "dy": -10,
+            "fontSize": 12,
+            "fontWeight": "bold",
+            "color": "black"
+        },
+        "encoding": {
+            "x": {
+                "value": 150
+            },
+            "y": {
+                "value": 315
+            },
+            "text": {
+                "value": "National Emergency"
+            },
+            "color": {"value": "black"}
+        }
+    },
+    {
+        "mark": {
+            "type": "text",
+            "align": "center",
+            "baseline": "bottom",
+            "dx": 0,
+            "dy": -10,
+            "fontSize": 12,
+            "fontWeight": "bold",
+            "color": "black"
+        },
+        "encoding": {
+            "x": {
+                "value": 325
+            },
+            "y": {
+                "value": 140
+            },
+            "text": {
+                "value": "George Floyd Dies"
+            },
+            "color": {"value": "black"}
+        }
+    },
+    {
+        "mark": {
+            "type": "text",
+            "align": "center",
+            "baseline": "bottom",
+            "dx": 0,
+            "dy": -10,
+            "fontSize": 12,
+            "fontWeight": "bold",
+            "color": "black"
+        },
+        "encoding": {
+            "x": {
+                "value": 810
+            },
+            "y": {
+                "value": 275
+            },
+            "text": {
+                "value": "Trump tests positive"
+            },
+            "color": {"value": "black"}
+        }
+    },
+    {
+        "mark": {
+            "type": "text",
+            "align": "center",
+            "baseline": "bottom",
+            "dx": 0,
+            "dy": -10,
+            "fontSize": 12,
+            "fontWeight": "bold",
+            "color": "black"
+        },
+        "encoding": {
+            "x": {
+                "value": 810
+            },
+            "y": {
+                "value": 290
+            },
+            "text": {
+                "value": "For COVID-19"
+            },
+            "color": {"value": "black"}
+        }
+    }
     ]
   }
   
