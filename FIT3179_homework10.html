@@ -14,6 +14,11 @@
 <h1 style="text-align: center;">2020 United States Presidential Election Statistics</h1>
 
 <div id="symbol_map1"></div>
+<div id="symbol_map2"></div>
+<div id="symbol_map3"></div>
+<div id="symbol_map4"></div>
+<div id="symbol_map5"></div>
+<div id="symbol_map6"></div>
 
 <!-- The paragraphs -->
 <section style="margin: 20px 0; text-align: justify;">
@@ -21,8 +26,6 @@
   <p>The 2020 U.S. Presidential Election, held on November 3rd, stood out as one of the most contentious and closely-watched in recent history. Incumbent President Donald J. Trump, of the Republican Party, vied for a second term against the Democratic nominee, former Vice President Joseph R. Biden Jr. The backdrop of this election was unique, characterized by the global COVID-19 pandemic, which not only became a pivotal campaign issue but also significantly influenced the voting process. An unprecedented number of citizens chose to vote by mail, prompting discussions about postal system readiness and vote counting durations.</p>
   <p>In the months leading up to the election, the U.S. was also gripped by widespread protests advocating for racial justice, sparked by the tragic killing of George Floyd. This civil unrest pushed issues of racial equality and police reform to the forefront of campaign debates. The economic downturn induced by the pandemic, resulting in job losses and business closures, further intensified the election's stakes. Each candidate's approach to these crises and their visions for America's future played a crucial role in the campaigns. Following a tense post-election period marked by challenges to the results, Joseph R. Biden Jr. emerged as the victor, setting the stage for his inauguration on January 20, 2021.</p>
 </section>
-
-<div id="symbol_map2"></div>
 
 <script type="text/javascript">
   // Load and display the first visualization (FIT3179_homework_8.json)
@@ -36,11 +39,33 @@
   vegaEmbed('#symbol_map2', spec2).then(function(result) {
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
   }).catch(console.error);
+
+  // Load and display the third visualization (polls.json)
+  var spec3 = "polls.json";
+  vegaEmbed('#symbol_map3', spec3).then(function(result) {
+    // Access the Vega view instance (result.view) if needed
+  }).catch(console.error);
+
+  // Load and display the fourth visualization (representatives.json)
+  var spec4 = "representatives.json";
+  vegaEmbed('#symbol_map4', spec4).then(function(result) {
+    // Access the Vega view instance (result.view) if needed
+  }).catch(console.error);
+
+  // Load and display the fifth visualization (senate.json)
+  var spec5 = "senate.json";
+  vegaEmbed('#symbol_map5', spec5).then(function(result) {
+    // Access the Vega view instance (result.view) if needed
+  }).catch(console.error);
+
+  // Load and display the sixth visualization (biden_approval.json)
+  var spec6 = "biden_approval.json";
+  vegaEmbed('#symbol_map6', spec6).then(function(result) {
+    // Access the Vega view instance (result.view) if needed
+  }).catch(console.error);
 </script>
 
 </body>
 </html>
-<meta http-equiv='cache-control' content='no-cache'> 
-<meta http-equiv='expires' content='0'> 
-<meta http-equiv='pragma' content='no-cache'>
+
 
