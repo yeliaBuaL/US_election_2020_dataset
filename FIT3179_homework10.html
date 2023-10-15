@@ -19,6 +19,7 @@
 <div id="symbol_map4"></div>
 <div id="symbol_map5"></div>
 <div id="symbol_map6"></div>
+<div id="symbol_map7"></div>
 
 <!-- The paragraphs -->
 <section style="margin: 20px 0; text-align: justify;">
@@ -60,6 +61,12 @@
 
   // Load and display the sixth visualization (biden_approval.json)
   var spec6 = "biden_approval.json";
+  vegaEmbed('#symbol_map6', spec6).then(function(result) {
+    // Access the Vega view instance (result.view) if needed
+  }).catch(console.error);
+
+  // Load and display the seventh visualization (biden_approval.json)
+  var spec6 = "republican_approval.json";
   vegaEmbed('#symbol_map6', spec6).then(function(result) {
     // Access the Vega view instance (result.view) if needed
   }).catch(console.error);
