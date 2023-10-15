@@ -1,0 +1,107 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "description": "2020 U.S. Presidential Election Results",
+    "data": {
+        "values": [
+            {"party": "Democrats", "votes": -306},
+            {"party": "Republicans", "votes": 232}
+        ]
+    },
+    "width": 1200,
+    "height": 100,
+    "layer": [
+        {
+            "mark": {
+                "type": "bar",
+                "height": 50
+            },
+            "encoding": {
+                "x": {
+                    "field": "votes",
+                    "type": "quantitative",
+                    "axis": {
+                        "title": "270 Electoral College Votes To Win",
+                        "labels": false,
+                        "ticks": false,
+                        "grid": false
+                    },
+                    "scale": {
+                        "domain": [-306, 232]
+                    },
+                    "offset": 15
+                },
+                "color": {
+                    "field": "party",
+                    "type": "nominal",
+                    "scale": {
+                        "domain": ["Democrats", "Republicans"],
+                        "range": ["blue", "red"]
+                    },
+                    "legend": {
+                        "title": "Party",
+                        "orient": "bottom"
+                    }
+                }
+            }
+        },
+        {
+            "mark": {
+                "type": "text",
+                "align": "left",
+                "baseline": "middle",
+                "dx": 5
+            },
+            "encoding": {
+                "x": {
+                    "field": "votes",
+                    "type": "quantitative"
+                },
+                "text": {
+                    "condition": [
+                        {"test": "datum.party == 'Republicans'", "value": "232"}
+                    ],
+                    "value": ""
+                },
+                "color": {
+                    "value": "black"
+                }
+            }
+        },
+        {
+            "mark": {
+                "type": "text",
+                "align": "right",
+                "baseline": "middle",
+                "dx": -5
+            },
+            "encoding": {
+                "x": {
+                    "field": "votes",
+                    "type": "quantitative"
+                },
+                "text": {
+                    "condition": [
+                        {"test": "datum.party == 'Democrats'", "value": "306"}
+                    ],
+                    "value": ""
+                },
+                "color": {
+                    "value": "black"
+                }
+            }
+        },
+        {
+            "mark": "rule",
+            "encoding": {
+                "x": {"datum": -38},
+                "color": {"value": "black"},
+                "size": {"value": 2}
+            }
+        }
+    ],
+    "config": {
+        "view": {
+            "stroke": "transparent"
+        }
+    }
+}
