@@ -1,0 +1,180 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "description": "Plot showing a 30 day rolling average of 'yes' and 'no' polling values.",
+    "width": 1000,
+    "height": 400,
+    "title": "Joe Biden's Approval Rating While in Office",
+    "data": {"url": "https://raw.githubusercontent.com/yeliaBuaL/US_election_2020_dataset/main/president_approval_polls.csv"},
+    "transform": [
+      {
+        "fold": ["yes", "no"],
+        "as": ["Response Type", "Value"]
+      },
+      {
+        "calculate": "if(datum['Response Type'] === 'yes', 'Approve', 'Disapprove')",
+        "as": "Response"
+      },
+      {
+        "window": [
+          {
+            "field": "Value",
+            "op": "mean",
+            "as": "rolling_mean"
+          }
+        ],
+        "frame": [-15, 15],
+        "groupby": ["Response Type"]
+      }
+    ],
+    "encoding": {
+      "x": {
+        "field": "start_date", 
+        "type": "temporal", 
+        "title": "Start Date",
+        "axis": {
+          "format": "%B %Y"
+        }
+      },
+      "y": {
+        "field": "Value", 
+        "type": "quantitative", 
+        "axis": {"title": "Approval/ Disapproval (%)"},
+        "scale": {"domain": [25, 65]}
+      },
+      "color": {
+        "field": "Response",
+        "type": "nominal",
+        "scale": {
+          "domain": ["Approve", "Disapprove"],
+          "range": ["green", "red"]
+        },
+        "legend": {"title": "Response"}
+      }
+    },
+    "layer": [
+      {
+        "mark": {"type": "point", "opacity": 0.1}
+      },
+      {
+        "mark": {"type": "line", "size": 3},
+        "encoding": {
+          "y": {"field": "rolling_mean", "type": "quantitative"},
+          "tooltip": [
+            {"field": "start_date", "type": "temporal", "title": "Date"},
+            {"field": "rolling_mean", "type": "quantitative", "title": "Approval /Disapproval (%)"},
+            {"field": "Response", "type": "nominal", "title": "Response Type"}
+          ]
+        }
+      },
+      {
+        "mark": {
+            "type": "text",
+            "align": "center",
+            "baseline": "bottom",
+            "dx": 0,
+            "dy": -10,
+            "fontSize": 12,
+            "fontWeight": "bold",
+            "color": "black"
+        },
+        "encoding": {
+            "x": {
+                "value": 210
+            },
+            "y": {
+                "value": 370
+            },
+            "text": {
+                "value": "Afghanistan Withdrawal"
+            },
+            "color": {"value": "black"}
+        }
+        },
+        {
+            "mark": {
+                "type": "text",
+                "align": "center",
+                "baseline": "bottom",
+                "dx": 0,
+                "dy": -10,
+                "fontSize": 12,
+                "fontWeight": "bold",
+                "color": "black"
+            },
+            "encoding": {
+                "x": {
+                    "value": 250
+                },
+                "y": {
+                    "value": 300
+                },
+                "text": {
+                    "value": "U.S.-Mexico Border Crisis"
+                },
+                "color": {"value": "black"}
+            }
+        },
+        {
+            "mark": {
+                "type": "text",
+                "align": "center",
+                "baseline": "bottom",
+                "dx": 0,
+                "dy": -10,
+                "fontSize": 12,
+                "fontWeight": "bold",
+                "color": "black"
+            },
+            "encoding": {
+                "x": {
+                    "value": 500
+                },
+                "y": {
+                    "value": 50                },
+                "text": {
+                    "value": "Record-High Inflation"
+                },
+                "color": {"value": "black"}
+            }
+        },
+        {
+            "transform": [
+              {"filter": "datum.Response == 'Approve'"},
+              {"sort": [{"field": "start_date", "order": "descending"}]},
+              {"window": [{"op": "row_number", "as": "row_num"}]},
+              {"filter": "datum.row_num == 1"}
+            ],
+            "mark": {
+              "type": "text",
+              "align": "left",
+              "dx": 5
+            },
+            "encoding": {
+              "x": {"field": "start_date", "type": "temporal"},
+              "y": {"field": "rolling_mean", "type": "quantitative"},
+              "text": {"field": "rolling_mean", "type": "quantitative"},
+              "color": {"value": "green"}
+            }
+          },
+          {
+            "transform": [
+              {"filter": "datum.Response == 'Disapprove'"},
+              {"sort": [{"field": "start_date", "order": "descending"}]},
+              {"window": [{"op": "row_number", "as": "row_num"}]},
+              {"filter": "datum.row_num == 1"}
+            ],
+            "mark": {
+              "type": "text",
+              "align": "left",
+              "dx": 5
+            },
+            "encoding": {
+              "x": {"field": "start_date", "type": "temporal"},
+              "y": {"field": "rolling_mean", "type": "quantitative"},
+              "text": {"field": "rolling_mean", "type": "quantitative"},
+              "color": {"value": "red"}
+            }
+          }
+    ]
+  }
+  

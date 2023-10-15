@@ -1,0 +1,55 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "config": {"view": {"stroke": ""}},
+    "title": "House of Representatives Seat Distribution",
+    "width": 800,
+    "height": 150,
+    "data": {
+      "url": "https://raw.githubusercontent.com/yeliaBuaL/US_election_2020_dataset/main/representatives.csv"
+    },
+    "transform": [
+      {
+        "calculate": "{'Democratic': 'https://upload.wikimedia.org/wikipedia/commons/9/93/Democratic_Disc.svg', 'Republican': 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Republican_Disc.svg/1200px-Republican_Disc.svg.png'}[datum.Party]",
+        "as": "image_url"
+      },
+      {
+        "calculate": "sequence(0, ceil(datum['Number of Members'] / 3) * 3, 3)",
+        "as": "seat_sequence"
+      },
+      {
+        "flatten": ["seat_sequence"]
+      },
+      {"window": [{"op": "rank", "as": "rank"}], "groupby": ["Party"]}
+    ],
+    "layer": [
+      {
+        "mark": {"type": "image", "width": 25, "height": 25, "align": "left"},
+        "encoding": {
+          "x": {"field": "rank", "type": "ordinal", "axis": null},
+          "y": {
+            "field": "Party",
+            "type": "nominal",
+            "axis": {"title": ""},
+            "sort": ["Democratic", "Republican"]
+          },
+          "url": {"field": "image_url", "type": "nominal"}
+        }
+      },
+      {
+        "mark": {"type": "text", "align": "left", "baseline": "middle", "dx": 75},
+        "encoding": {
+          "x": {"aggregate": "max", "field": "rank", "type": "quantitative", "axis": {"title": "Number of Members (1 image = 3 members)", "ticks": false, "labels": false}},
+          "y": {"field": "Party", "type": "nominal", "sort": ["Democratic", "Republican"]},
+          "text": {"aggregate": "max", "field": "Number of Members", "type": "quantitative"}
+        }
+      },
+      {
+        "mark": {"type": "text", "align": "left", "baseline": "middle", "dx": -690, "dy": 25},
+        "encoding": {
+          "x": {"value": 700},
+          "y": {"datum": "Democratic"},
+          "text": {"value": "Democrats have secured a majority in the House of Representatives"}
+        }
+      }
+    ]
+  }

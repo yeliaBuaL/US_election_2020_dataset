@@ -1,0 +1,102 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 1000,
+  "height": 400,
+  "title": "Favorable Republican Presidential Candidate Statistics",
+  "data": {"url": "https://raw.githubusercontent.com/yeliaBuaL/US_election_2020_dataset/main/favorability_averages.csv"},
+  "params": [
+    {
+        "name": "Candidate_Selection",
+        "bind":{
+            "input": "select",
+            "options": [
+                null,
+                "Donald Trump",
+                "Ron DeSantis",
+                "Nikki Haley",
+                "Vivek G. Ramaswamy",
+                "Mike Pence",
+                "Robert F. Kennedy"
+            ],
+            "labels": [
+                "Show All",
+                "Donald Trump",
+                "Ron DeSantis",
+                "Nikki Haley",
+                "Vivek G. Ramaswamy",
+                "Mike Pence",
+                "Robert F. Kennedy"
+            ],
+            "name": "Select Candidate:"
+        }
+    }
+  ],
+  "transform": [
+    {
+      "filter": "datum.answer == 'Favorable' && year(datum.date) >= 2023"
+    },
+    {
+      "filter": "datum.politician == 'Donald Trump' || datum.politician == 'Ron DeSantis' || datum.politician == 'Nikki Haley' || datum.politician == 'Vivek G. Ramaswamy' || datum.politician == 'Mike Pence' || datum.politician == 'Robert F. Kennedy'"
+    },
+    {
+        "filter": "Candidate_Selection == null || datum.politician == Candidate_Selection"
+    },
+    {
+      "window": [
+        {
+          "field": "pct_estimate",
+          "op": "mean",
+          "as": "rolling_mean"
+        }
+      ],
+      "sort": [{"field": "date"}],
+      "frame": [-15, 15],
+      "groupby": ["politician"]
+    }
+  ],
+  "encoding": {
+    "x": {
+      "field": "date", 
+      "type": "temporal", 
+      "title": "Date",
+      "axis": {
+        "format": "%B %Y"
+      }
+    },
+    "color": {
+      "field": "politician",
+      "type": "nominal",
+      "scale": {
+        "domain": ["Donald Trump", "Ron DeSantis", "Nikki Haley", "Vivek G. Ramaswamy", "Mike Pence", "Robert F. Kennedy"],
+        "range": ["#1f77b4", "#ff7f0e", "#2ca02c", "#d62728", "#9467bd", "#8c564b"]
+      },
+      "legend": {"title": "Politician"}
+    }
+  },
+  "layer": [
+    {
+      "mark": {"type": "point", "opacity": 0.3},
+      "encoding": {
+        "y": {
+          "field": "pct_estimate",
+          "type": "quantitative",
+          "axis": {"title": "Favorable (%)"}
+        }
+      }
+    },
+    {
+      "mark": {"type": "line", "size": 3},
+      "encoding": {
+        "y": {
+          "field": "rolling_mean",
+          "type": "quantitative"
+        },
+        "tooltip": [
+            {"field": "politician", "type": "nominal", "title": "Politician"},
+          {"field": "date", "type": "temporal", "title": "Date"},
+          {"field": "rolling_mean", "type": "quantitative", "title": "Favorable (%)"}
+        ]
+      }
+    }
+  ]
+}
