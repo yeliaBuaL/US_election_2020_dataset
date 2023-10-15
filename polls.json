@@ -1,0 +1,189 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "description": "Poll numbers for Biden and Trump by month with rolling mean lines",
+    "title": "Poll numbers for Biden and Trump",
+    "data": {
+        "url": "https://raw.githubusercontent.com/yeliaBuaL/US_election_2020_dataset/main/polls.csv"
+    },
+    "transform": [
+        {
+            "calculate": "indexof(['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'], datum.Month) + 1",
+            "as": "month_num"
+        },
+        {
+            "window": [
+                {
+                    "op": "mean",
+                    "field": "Biden (D)",
+                    "as": "Biden_rolling_mean"
+                },
+                {
+                    "op": "mean",
+                    "field": "Trump (R)",
+                    "as": "Trump_rolling_mean"
+                }
+            ],
+            "frame": [-1, 1],
+            "sort": [{"field": "month_num"}]
+        }
+    ],
+    "width": 1000,
+    "height": 400,
+    "encoding": {
+        "x": {
+            "field": "month_num",
+            "type": "quantitative",
+            "title": "Month",
+            "axis": {
+                "title": "Month",
+                "values": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+                "labelExpr": "['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'][datum.value-1]"
+            }
+        }
+    },
+    "layer": [
+        {
+            "mark": "point",
+            "encoding": {
+                "y": {
+                    "field": "Biden (D)",
+                    "type": "quantitative",
+                    "title": "Poll Share(%)",
+                    "scale": {
+                        "domain": [30, 60]
+                    }
+                },
+                "color": {
+                    "value": "blue"
+                }
+            }
+        },
+        {
+            "mark": "point",
+            "encoding": {
+                "y": {
+                    "field": "Trump (R)",
+                    "type": "quantitative",
+                    "scale": {
+                        "domain": [30, 60]
+                    }
+                },
+                "color": {
+                    "value": "red"
+                }
+            }
+        },
+        {
+            "mark": "line",
+            "encoding": {
+                "y": {
+                    "field": "Biden_rolling_mean",
+                    "type": "quantitative"
+                },
+                "color": {
+                    "value": "blue"
+                }
+            }
+        },
+        {
+            "mark": "line",
+            "encoding": {
+                "y": {
+                    "field": "Trump_rolling_mean",
+                    "type": "quantitative"
+                },
+                "color": {
+                    "value": "red"
+                }
+            }
+        },
+        {
+            "mark": {
+                "type": "text",
+                "align": "center",
+                "baseline": "bottom",
+                "dx": 0,
+                "dy": -10,
+                "fontSize": 12,
+                "fontWeight": "bold"
+            },
+            "encoding": {
+                "x": {
+                    "value": 425
+                },
+                "y": {
+                    "value": 200
+                },
+                "text": {
+                    "value": "Death of George Floyd"
+                }
+            }
+        },
+        {
+            "mark": {
+                "type": "text",
+                "align": "center",
+                "baseline": "bottom",
+                "dx": 0,
+                "dy": -10,
+                "fontSize": 12,
+                "fontWeight": "bold"
+            },
+            "encoding": {
+                "x": {
+                    "value": 920
+                },
+                "y": {
+                    "value": 200
+                },
+                "text": {
+                    "value": "Voting Day"
+                }
+            }
+        },
+        {
+            "mark": {
+                "type": "text",
+                "align": "center",
+                "baseline": "bottom",
+                "dx": 0,
+                "dy": -10,
+                "fontSize": 12,
+                "fontWeight": "bold"
+            },
+            "encoding": {
+                "x": {
+                    "value": 250
+                },
+                "y": {
+                    "value": 200
+                },
+                "text": {
+                    "value": "Trump Declares "
+                }
+            }
+        },
+        {
+            "mark": {
+                "type": "text",
+                "align": "center",
+                "baseline": "bottom",
+                "dx": 0,
+                "dy": -10,
+                "fontSize": 12,
+                "fontWeight": "bold"
+            },
+            "encoding": {
+                "x": {
+                    "value": 250
+                },
+                "y": {
+                    "value": 220
+                },
+                "text": {
+                    "value": "Pandemic Emergency"
+                }
+            }
+        }
+    ]
+}
