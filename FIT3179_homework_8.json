@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": "2020 US Electoral Map",
-  "width": 1600,
+  "width": 1200,
   "height": 800,
   "projection": {"type": "albersUsa"},
   "layer":[
