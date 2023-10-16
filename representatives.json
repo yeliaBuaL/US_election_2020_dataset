@@ -2,8 +2,8 @@
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "config": {"view": {"stroke": ""}},
     "title": "House of Representatives Seat Distribution",
-    "width": 800,
-    "height": 150,
+    "width": 1000,
+    "height": 200,
     "data": {
       "url": "https://raw.githubusercontent.com/yeliaBuaL/US_election_2020_dataset/main/representatives.csv"
     },
@@ -23,7 +23,7 @@
     ],
     "layer": [
       {
-        "mark": {"type": "image", "width": 25, "height": 25, "align": "left"},
+        "mark": {"type": "image", "width": 30, "height": 30, "align": "left"},
         "encoding": {
           "x": {"field": "rank", "type": "ordinal", "axis": null},
           "y": {
@@ -36,7 +36,7 @@
         }
       },
       {
-        "mark": {"type": "text", "align": "left", "baseline": "middle", "dx": 75},
+        "mark": {"type": "text", "align": "left", "baseline": "middle", "dx": 95},
         "encoding": {
           "x": {"aggregate": "max", "field": "rank", "type": "quantitative", "axis": {"title": "Number of Members (1 image = 3 members)", "ticks": false, "labels": false}},
           "y": {"field": "Party", "type": "nominal", "sort": ["Democratic", "Republican"]},
