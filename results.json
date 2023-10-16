@@ -37,19 +37,17 @@
                         "domain": ["Democrats", "Republicans"],
                         "range": ["blue", "red"]
                     },
-                    "legend": {
-                        "title": "Party",
-                        "orient": "bottom"
-                    }
+                    "legend": null
                 }
             }
         },
         {
             "mark": {
                 "type": "text",
+                "fontSize": 30,
                 "align": "left",
                 "baseline": "middle",
-                "dx": 5
+                "dx": -60
             },
             "encoding": {
                 "x": {
@@ -63,16 +61,17 @@
                     "value": ""
                 },
                 "color": {
-                    "value": "black"
+                    "value": "White"
                 }
             }
         },
         {
             "mark": {
                 "type": "text",
+                "fontSize": 30,
                 "align": "right",
                 "baseline": "middle",
-                "dx": -5
+                "dx": 60
             },
             "encoding": {
                 "x": {
@@ -86,7 +85,7 @@
                     "value": ""
                 },
                 "color": {
-                    "value": "black"
+                    "value": "white"
                 }
             }
         },
