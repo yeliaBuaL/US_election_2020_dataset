@@ -23,13 +23,9 @@
         /* Custom CSS for center-aligning all elements and setting the background */
         body {
             text-align: center;
-            max-width: 1200px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        h1, h2, p, section {
-            text-align: center;
+            margin: 0;
+            padding: 0;
+            max-width: 100vw;
         }
 
         .main-content {
@@ -39,17 +35,6 @@
             justify-content: center;
             padding: 20px;
             border-radius: 10px;
-            background: linear-gradient(to bottom, transparent 50%, #fff 50%);
-        }
-
-        .top-half {
-            flex: 1;
-            background: linear-gradient(to bottom, #3c3b6e 50%, transparent 50%);
-        }
-
-        .bottom-half {
-            flex: 1;
-            background: linear-gradient(to bottom, transparent 50%, #fff 50%);
         }
 
         .usa-stars {
@@ -101,6 +86,26 @@
             width: 100px;
             height: 100px;
         }
+
+        .white-container {
+            background-color: #fff;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .top-half {
+            flex: 1;
+            background: linear-gradient(to bottom, #3c3b6e 50%, transparent 50%);
+        }
+
+        .bottom-half {
+            flex: 1;
+            background: linear-gradient(to bottom, transparent 50%, #fff 50%);
+        }
     </style>
 </head>
 
@@ -108,10 +113,10 @@
 
 <div class="main-content usa-stars top-half">
 
-    <h1>2020 United States Presidential Election Statistics</h1>
-    <section>
+    <div class="white-container">
+        <h1>2020 United States Presidential Election Statistics</h1>
         <p>The 2020 U.S. Presidential Election, held on November 3rd, was one of the most contentious and closely-watched in recent history. Incumbent President Donald J. Trump of the Republican Party vied for a second term against the Democratic nominee, former Vice President Joseph R. Biden Jr. Amidst the challenges of a global pandemic and significant civil unrest, this election saw an unprecedented number of mail-in ballots and brought issues like racial equality, public health, and economic recovery to the forefront of the national conversation.</p>
-    </section>
+    </div>
 
     <div class="map-container">
         <img src="https://politics-static.cnn.io/2020/static-assets/images/headshots/biden-medium.png" alt="Image on Left">
@@ -120,43 +125,50 @@
     </div>
 
     <div id="symbol_map2"></div>
-    <section>
-        <p>The results of the 2020 U.S. Presidential Election were pivotal. The choropleth map showcases how each state voted, with blue representing states that favored Biden and red representing those that favored Trump. The subsequent bar chart provides a clear visualization of the Electoral College votes each candidate secured. The race to 270 votes is the key to a Presidential victory, and this visualization offers a clear breakdown of that race.</p>
-    </section>
+
+    <div class="white-container">
+        <p>The results of the 2020 U.S. Presidential Election were pivotal. The choropleth map showcases how each state voted, with blue representing states that favored Biden and red representing those that favored Trump. The intensity of the color indicates the margin by which the winning candidate led in that state. The subsequent bar chart provides a clearer picture of the Electoral College votes secured by each candidate.</p>
+    </div>
+
+    <div id="symbol_map3"></div>
+
+    <div class="white-container">
+        <p>For those interested in a deeper dive into the election's nuances, the bubble chart visualizes the voting margins of each state. Users can sort states by Voting Eligible Population (VEP) and region. The chart also highlights swing states and provides historical context by showing states that have been strongholds for the Democratic and Republican parties over the years.</p>
+    </div>
+
+    <div id="symbol_map4"></div>
 
 </div>
 
 <div class="main-content usa-plaid bottom-half">
 
-    <div id="symbol_map3"></div>
-    <section>
-        <p>The bubble chart provides insights into the voting margins of each state, allowing users to sort data by VEP and region. This visualization highlights swing states as well as historical Democratic and Republican strongholds, offering a comprehensive view of the U.S. political landscape.</p>
-    </section>
-
-    <div id="symbol_map4"></div>
-    <section>
-        <p>Approval ratings play a crucial role in predicting election outcomes. This visualization tracks the approval ratings of both candidates, Biden and Trump, leading up to the election. Notable events, such as Trump declaring a state of emergency due to the COVID-19 pandemic, the tragic death of George Floyd, and Trump's own COVID-19 diagnosis, all influenced public perception and approval of the candidates.</p>
-    </section>
+    <div class="white-container">
+        <p>This visualization tracks the approval ratings of both candidates, Biden and Trump, leading up to the election. Notable events, such as Trump declaring a state of emergency due to the COVID-19 pandemic, the tragic death of George Floyd, and Trump's own COVID-19 diagnosis, all influenced public perception and approval of the candidates.</p>
+    </div>
 
     <div id="symbol_map5"></div>
-    <section>
+
+    <div class="white-container">
         <p>The House of Representatives saw the Democrats securing a majority with 222 seats to the Republicans' 213. This majority provides the Democrats with increased legislative power and the ability to further their policy agenda.</p>
-    </section>
+    </div>
 
     <div id="symbol_map6"></div>
-    <section>
+
+    <div class="white-container">
         <p>The Senate's composition was another focal point of the 2020 elections. With 48 Democrats, 50 Republicans, and 2 Independents, the balance of power was precarious. However, as the Democrats are in caucus with the Independents, and the Vice President (a Democrat) holds the tie-breaking vote, they effectively have a majority of 51 to 50, allowing them a slim margin to advance their legislative priorities.</p>
-    </section>
+    </div>
 
     <div id="symbol_map7"></div>
-    <section>
+
+    <div class="white-container">
         <p>Since taking office, President Biden's approval rating has been under scrutiny. Key events, including the Afghanistan withdrawal, the U.S.-Mexico border crisis, and rising inflation, have seen his approval rating fluctuate. This visualization tracks these changes, offering a glimpse into public sentiment during his tenure.</p>
-    </section>
+    </div>
 
     <div id="symbol_map8"></div>
-    <section>
+
+    <div class="white-container">
         <p>As attention turns to future elections, the approval ratings of potential Republican candidates come into focus. Donald Trump and Ron DeSantis emerge as frontrunners, with notable figures like Nikki Haley, Vivek Ramaswamy, Mike Pence, and Robert F. Kennedy Jr. also in the mix. This visualization provides a snapshot of the current political climate within the Republican Party, setting the stage for what promises to be another closely-watched election cycle.</p>
-    </section>
+    </div>
 
     <script type="text/javascript">
         // Load and display the visualizations
