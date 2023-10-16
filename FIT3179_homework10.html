@@ -23,13 +23,9 @@
         /* Custom CSS for center-aligning all elements and setting the background */
         body {
             text-align: center;
-            max-width: 1000px;
+            max-width: 1200px;
             margin-left: auto;
             margin-right: auto;
-            background-image: url('https://media.istockphoto.com/id/1324929432/vector/independence-day-america-the-white-house-flat.jpg?s=612x612&w=0&k=20&c=TatDA22tDY49ZvZSIlON2_VuhUTC-Gzb3xqC3mebfxw=');
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-position: center center;
         }
 
         h1, h2, p, section {
@@ -41,9 +37,58 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            background-color: rgba(255, 255, 255, 0.8); /* White background with 80% opacity */
             padding: 20px;
             border-radius: 10px;
+            background: linear-gradient(to bottom, transparent 50%, #fff 50%);
+        }
+
+        .top-half {
+            flex: 1;
+            background: linear-gradient(to bottom, #3c3b6e 50%, transparent 50%);
+        }
+
+        .bottom-half {
+            flex: 1;
+            background: linear-gradient(to bottom, transparent 50%, #fff 50%);
+        }
+
+        .usa-stars {
+            background: linear-gradient(324deg, #3c3b6e 4%, transparent 4%) -0.7in 0.43in,
+                linear-gradient(36deg, #3c3b6e 4%, transparent 4%) 0.3in 0.43in,
+                linear-gradient(72deg, #fff 8.5%, transparent 8.5%) 0.3in 0.43in,
+                linear-gradient(288deg, #fff 8.5%, transparent 8.5%) -0.7in 0.43in,
+                linear-gradient(216deg, #fff 7.5%, transparent 7.5%) -0.7in 0.23in,
+                linear-gradient(144deg, #fff 7.5%, transparent 7.5%) 0.3in 0.23in,
+                linear-gradient(324deg, #3c3b6e 4%, transparent 4%) -0.2in 0.93in,
+                linear-gradient(36deg, #3c3b6e 4%, transparent 4%) 0.8in 0.93in,
+                linear-gradient(72deg, #fff 8.5%, transparent 8.5%) 0.8in 0.93in,
+                linear-gradient(288deg, #fff 8.5%, transparent 8.5%) -0.2in 0.93in,
+                linear-gradient(216deg, #fff 7.5%, transparent 7.5%) -0.2in 0.73in,
+                linear-gradient(144deg, #fff 7.5%, transparent 7.5%) 0.8in 0.73in,
+                #3c3b6e;
+            background-size: 1in 1in;
+        }
+
+        .usa-plaid {
+            background: repeating-linear-gradient(
+                    45deg,
+                    #b22234 0,
+                    #b22234 0.2in,
+                    #fff 0,
+                    #fff 0.25in,
+                    transparent 0,
+                    transparent 0.5in,
+                    #fff 0,
+                    #fff 0.55in
+                ),
+                repeating-linear-gradient(
+                    -45deg,
+                    #3c3b6e,
+                    #3c3b6e 0.25in,
+                    transparent 0,
+                    transparent 0.4in
+                ),
+                #fff;
         }
 
         .map-container {
@@ -61,7 +106,7 @@
 
 <body>
 
-<div class="main-content">
+<div class="main-content usa-stars top-half">
 
     <h1>2020 United States Presidential Election Statistics</h1>
     <section>
@@ -79,6 +124,10 @@
         <p>The results of the 2020 U.S. Presidential Election were pivotal. The choropleth map showcases how each state voted, with blue representing states that favored Biden and red representing those that favored Trump. The subsequent bar chart provides a clear visualization of the Electoral College votes each candidate secured. The race to 270 votes is the key to a Presidential victory, and this visualization offers a clear breakdown of that race.</p>
     </section>
 
+</div>
+
+<div class="main-content usa-plaid bottom-half">
+
     <div id="symbol_map3"></div>
     <section>
         <p>The bubble chart provides insights into the voting margins of each state, allowing users to sort data by VEP and region. This visualization highlights swing states as well as historical Democratic and Republican strongholds, offering a comprehensive view of the U.S. political landscape.</p>
@@ -86,12 +135,12 @@
 
     <div id="symbol_map4"></div>
     <section>
-        <p>Approval ratings play a crucial role in predicting election outcomes. This visualization traces the approval rating trend of both Biden and Trump leading up to the election. Key events, such as Trump's declaration of a state of emergency for the COVID-19 pandemic, the tragic death of George Floyd, and Trump's own COVID-19 diagnosis, significantly influenced these ratings.</p>
+        <p>Approval ratings play a crucial role in predicting election outcomes. This visualization tracks the approval ratings of both candidates, Biden and Trump, leading up to the election. Notable events, such as Trump declaring a state of emergency due to the COVID-19 pandemic, the tragic death of George Floyd, and Trump's own COVID-19 diagnosis, all influenced public perception and approval of the candidates.</p>
     </section>
 
     <div id="symbol_map5"></div>
     <section>
-        <p>Post-election, the House of Representatives saw the Democrats secure a majority with 222 seats to the Republicans' 213. This majority means the Democrats have the power to drive legislative decisions and set the agenda in the House, a significant advantage in governing and policy-making.</p>
+        <p>The House of Representatives saw the Democrats securing a majority with 222 seats to the Republicans' 213. This majority provides the Democrats with increased legislative power and the ability to further their policy agenda.</p>
     </section>
 
     <div id="symbol_map6"></div>
@@ -110,37 +159,16 @@
     </section>
 
     <script type="text/javascript">
-        // Load and display the first visualization (results.json)
-        var spec1 = "results.json";
-        vegaEmbed('#symbol_map1', spec1).then(function(result) {}).catch(console.error);
-
-        // Load and display the second visualization (FIT3179_homework_8.json)
-        var spec2 = "FIT3179_homework_8.json";
-        vegaEmbed('#symbol_map2', spec2).then(function(result) {}).catch(console.error);
-
-        // Load and display the third visualization (FIT3179_homework_9.json)
-        var spec3 = "FIT3179_homework_9.json";
-        vegaEmbed('#symbol_map3', spec3).then(function(result) {}).catch(console.error);
-
-        // Load and display the fourth visualization (polls.json)
-        var spec4 = "polls.json";
-        vegaEmbed('#symbol_map4', spec4).then(function(result) {}).catch(console.error);
-
-        // Load and display the fifth visualization (representatives.json)
-        var spec5 = "representatives.json";
-        vegaEmbed('#symbol_map5', spec5).then(function(result) {}).catch(console.error);
-
-        // Load and display the sixth visualization (senate.json)
-        var spec6 = "senate.json";
-        vegaEmbed('#symbol_map6', spec6).then(function(result) {}).catch(console.error);
-
-        // Load and display the seventh visualization (biden_approval.json)
-        var spec7 = "biden_approval.json";
-        vegaEmbed('#symbol_map7', spec7).then(function(result) {}).catch(console.error);
-
-        // Load and display the eighth visualization (republican_approval.json)
-        var spec8 = "republican_approval.json";
-        vegaEmbed('#symbol_map8', spec8).then(function(result) {}).catch(console.error);
+        // Load and display the visualizations
+        var specs = [
+            "results.json", "FIT3179_homework_8.json", "FIT3179_homework_9.json",
+            "polls.json", "representatives.json", "senate.json", 
+            "biden_approval.json", "republican_approval.json"
+        ];
+        
+        specs.forEach(function(spec, index) {
+            vegaEmbed(`#symbol_map${index + 1}`, spec).then(function(result) {}).catch(console.error);
+        });
     </script>
 
 </div>
@@ -148,6 +176,7 @@
 </body>
 
 </html>
+
 
 
 
