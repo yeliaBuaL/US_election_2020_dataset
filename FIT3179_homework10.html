@@ -10,16 +10,30 @@
     <link rel="icon" href="https://www.freeiconspng.com/thumbs/american-us-flag-icon/us-flag-icon-32.png" type="image/png">
 
     <!-- CSS file -->
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" type="text/css" href="bootstrap.css" media="all">
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" type="text/css" href="font-awesome.min.css" media="all">
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" type="text/css" href="responsive.css" media="all">
     <!-- Main CSS -->
     <link rel="stylesheet" type="text/css" href="style.css" media="all">
 
     <style>
-        /* Custom CSS for center-aligning all elements */
-        body, h1, h2, p, section {
+        /* Custom CSS for center-aligning all elements and setting the background */
+        body {
             text-align: center;
             max-width: 1000px;
             margin-left: auto;
             margin-right: auto;
+            background-image: url('https://media.istockphoto.com/id/1324929432/vector/independence-day-america-the-white-house-flat.jpg?s=612x612&w=0&k=20&c=TatDA22tDY49ZvZSIlON2_VuhUTC-Gzb3xqC3mebfxw=');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center center;
+        }
+
+        h1, h2, p, section {
+            text-align: center;
         }
 
         .main-content {
@@ -27,6 +41,9 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
+            background-color: rgba(255, 255, 255, 0.8); /* White background with 80% opacity */
+            padding: 20px;
+            border-radius: 10px;
         }
 
         .map-container {
@@ -47,13 +64,10 @@
 <div class="main-content">
 
     <h1>2020 United States Presidential Election Statistics</h1>
-
     <section>
-        <h2>The 2020 U.S. Presidential Election: An Overview</h2>
-        <p>The 2020 U.S. Presidential Election was a monumental event, marked by unprecedented challenges and a deeply polarized nation. As the world watched closely, the U.S. citizens made their voices heard, resulting in a change of leadership and setting the stage for the next four years.</p>
+        <p>The 2020 U.S. Presidential Election, held on November 3rd, was one of the most contentious and closely-watched in recent history. Incumbent President Donald J. Trump of the Republican Party vied for a second term against the Democratic nominee, former Vice President Joseph R. Biden Jr. Amidst the challenges of a global pandemic and significant civil unrest, this election saw an unprecedented number of mail-in ballots and brought issues like racial equality, public health, and economic recovery to the forefront of the national conversation.</p>
     </section>
 
-    <!-- Map container -->
     <div class="map-container">
         <img src="https://politics-static.cnn.io/2020/static-assets/images/headshots/biden-medium.png" alt="Image on Left">
         <div id="symbol_map1"></div>
@@ -61,102 +75,72 @@
     </div>
 
     <div id="symbol_map2"></div>
-
     <section>
-        <h2>Election Results</h2>
-        <p>The 2020 election results unveiled a close race. The choropleth map and bar chart depict the distribution of Electoral College votes across states. With a decisive win in key battleground states, the Democratic nominee, Joseph R. Biden Jr., secured the presidency.</p>
+        <p>The results of the 2020 U.S. Presidential Election were pivotal. The choropleth map showcases how each state voted, with blue representing states that favored Biden and red representing those that favored Trump. The subsequent bar chart provides a clear visualization of the Electoral College votes each candidate secured. The race to 270 votes is the key to a Presidential victory, and this visualization offers a clear breakdown of that race.</p>
     </section>
 
     <div id="symbol_map3"></div>
-
     <section>
-        <h2>About the Bubble Chart</h2>
-        <p>Dive deeper into the voting patterns with our interactive bubble chart. Here, you can explore the voting margins of each state, sort them by VEP (Voting Eligible Population) and region. Notice the swing states that played pivotal roles, as well as states that historically lean Democratic or Republican. This chart paints a comprehensive picture of the nation's voting behavior.</p>
+        <p>The bubble chart provides insights into the voting margins of each state, allowing users to sort data by VEP and region. This visualization highlights swing states as well as historical Democratic and Republican strongholds, offering a comprehensive view of the U.S. political landscape.</p>
     </section>
 
     <div id="symbol_map4"></div>
-
     <section>
-        <h2>Candidate Approval Rating Trend</h2>
-        <p>The approval ratings of both Biden and Trump experienced fluctuations leading up to the election. Events like Trump declaring a state of emergency for the COVID-19 pandemic negatively impacted his approval. In contrast, the tragic death of George Floyd shifted some public sentiment towards Biden. Trump's personal battle with COVID-19 further influenced public opinion. Explore the trends and see how external events shaped the nation's perception.</p>
+        <p>Approval ratings play a crucial role in predicting election outcomes. This visualization traces the approval rating trend of both Biden and Trump leading up to the election. Key events, such as Trump's declaration of a state of emergency for the COVID-19 pandemic, the tragic death of George Floyd, and Trump's own COVID-19 diagnosis, significantly influenced these ratings.</p>
     </section>
 
     <div id="symbol_map5"></div>
-
     <section>
-        <h2>House of Representatives Post-Election</h2>
-        <p>Post-election, the Democrats secured a slim majority in the House of Representatives with 222 seats to the Republicans' 213. This majority grants the Democrats significant power in shaping legislative agendas and advancing their policy priorities.</p>
+        <p>Post-election, the House of Representatives saw the Democrats secure a majority with 222 seats to the Republicans' 213. This majority means the Democrats have the power to drive legislative decisions and set the agenda in the House, a significant advantage in governing and policy-making.</p>
     </section>
 
     <div id="symbol_map6"></div>
-
     <section>
-        <h2>Senate Power Dynamics</h2>
-        <p>The Senate saw a close division with 48 Democrats, 50 Republicans, and 2 Independents. However, the Democrats, in caucus with the Independents and with the Vice President's tie-breaking vote, effectively have a majority of 51 to 50. This dynamic is crucial for legislative decisions and confirms the Vice President's influential role in the Senate.</p>
+        <p>The Senate's composition was another focal point of the 2020 elections. With 48 Democrats, 50 Republicans, and 2 Independents, the balance of power was precarious. However, as the Democrats are in caucus with the Independents, and the Vice President (a Democrat) holds the tie-breaking vote, they effectively have a majority of 51 to 50, allowing them a slim margin to advance their legislative priorities.</p>
     </section>
 
     <div id="symbol_map7"></div>
-
     <section>
-        <h2>Biden's Approval Rating Since Office</h2>
-        <p>Since taking office, President Biden's approval ratings have seen shifts. While he began with a favorable rating, subsequent events like the Afghanistan withdrawal, US-Mexico border crisis, and rising inflation have impacted public sentiment. Analyze the trends and understand the events that influence presidential approval ratings.</p>
+        <p>Since taking office, President Biden's approval rating has been under scrutiny. Key events, including the Afghanistan withdrawal, the U.S.-Mexico border crisis, and rising inflation, have seen his approval rating fluctuate. This visualization tracks these changes, offering a glimpse into public sentiment during his tenure.</p>
     </section>
 
     <div id="symbol_map8"></div>
-
     <section>
-        <h2>Approval Ratings of Potential Republican Candidates</h2>
-        <p>As the next election cycle approaches, the spotlight is on potential Republican candidates. Prominent figures include Donald Trump, Ron DeSantis, Nikki Haley, Vivek Ramaswamy, Mike Pence, and Robert F. Kennedy. Currently, Donald Trump leads in approval, with DeSantis following closely. Explore the dynamics and public sentiment towards these potential contenders.</p>
+        <p>As attention turns to future elections, the approval ratings of potential Republican candidates come into focus. Donald Trump and Ron DeSantis emerge as frontrunners, with notable figures like Nikki Haley, Vivek Ramaswamy, Mike Pence, and Robert F. Kennedy Jr. also in the mix. This visualization provides a snapshot of the current political climate within the Republican Party, setting the stage for what promises to be another closely-watched election cycle.</p>
     </section>
 
     <script type="text/javascript">
         // Load and display the first visualization (results.json)
         var spec1 = "results.json";
-        vegaEmbed('#symbol_map1', spec1).then(function(result) {
-            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-        }).catch(console.error);
+        vegaEmbed('#symbol_map1', spec1).then(function(result) {}).catch(console.error);
 
-        // Load and display the first visualization (FIT3179_homework_8.json)
+        // Load and display the second visualization (FIT3179_homework_8.json)
         var spec2 = "FIT3179_homework_8.json";
-        vegaEmbed('#symbol_map2', spec2).then(function(result) {
-            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-        }).catch(console.error);
+        vegaEmbed('#symbol_map2', spec2).then(function(result) {}).catch(console.error);
 
-        // Load and display the second visualization (FIT3179_homework_9.json)
+        // Load and display the third visualization (FIT3179_homework_9.json)
         var spec3 = "FIT3179_homework_9.json";
-        vegaEmbed('#symbol_map3', spec3).then(function(result) {
-            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-        }).catch(console.error);
+        vegaEmbed('#symbol_map3', spec3).then(function(result) {}).catch(console.error);
 
-        // Load and display the third visualization (polls.json)
+        // Load and display the fourth visualization (polls.json)
         var spec4 = "polls.json";
-        vegaEmbed('#symbol_map4', spec4).then(function(result) {
-            // Access the Vega view instance (result.view) if needed
-        }).catch(console.error);
+        vegaEmbed('#symbol_map4', spec4).then(function(result) {}).catch(console.error);
 
-        // Load and display the fourth visualization (representatives.json)
+        // Load and display the fifth visualization (representatives.json)
         var spec5 = "representatives.json";
-        vegaEmbed('#symbol_map5', spec5).then(function(result) {
-            // Access the Vega view instance (result.view) if needed
-        }).catch(console.error);
+        vegaEmbed('#symbol_map5', spec5).then(function(result) {}).catch(console.error);
 
-        // Load and display the fifth visualization (senate.json)
+        // Load and display the sixth visualization (senate.json)
         var spec6 = "senate.json";
-        vegaEmbed('#symbol_map6', spec6).then(function(result) {
-            // Access the Vega view instance (result.view) if needed
-        }).catch(console.error);
+        vegaEmbed('#symbol_map6', spec6).then(function(result) {}).catch(console.error);
 
-        // Load and display the sixth visualization (biden_approval.json)
+        // Load and display the seventh visualization (biden_approval.json)
         var spec7 = "biden_approval.json";
-        vegaEmbed('#symbol_map7', spec7).then(function(result) {
-            // Access the Vega view instance (result.view) if needed
-        }).catch(console.error);
+        vegaEmbed('#symbol_map7', spec7).then(function(result) {}).catch(console.error);
 
-        // Load and display the seventh visualization (republican_approval.json)
+        // Load and display the eighth visualization (republican_approval.json)
         var spec8 = "republican_approval.json";
-        vegaEmbed('#symbol_map8', spec8).then(function(result) {
-            // Access the Vega view instance (result.view) if needed
-        }).catch(console.error);
+        vegaEmbed('#symbol_map8', spec8).then(function(result) {}).catch(console.error);
     </script>
 
 </div>
@@ -164,6 +148,7 @@
 </body>
 
 </html>
+
 
 
 
