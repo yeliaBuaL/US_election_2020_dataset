@@ -25,7 +25,6 @@
             background-image: url('https://i.pinimg.com/originals/a1/49/8f/a1498f57bb8f4ecdf633482d9173c90d.png');
             background-size: cover;
             background-repeat: no-repeat;
-            background-attachment: fixed;
         }
 
         h1, h2, p, section {
@@ -52,6 +51,14 @@
             width: 100px;
             height: 100px;
         }
+
+        /* Translucent containers for text */
+        .translucent-container {
+            background-color: rgba(255, 255, 255, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
     </style>
 </head>
 
@@ -61,10 +68,12 @@
 
     <h1>2020 United States Presidential Election Statistics</h1>
 
-    <section>
-        <h2>The 2020 U.S. Presidential Election: An Overview</h2>
-        <p>The 2020 U.S. Presidential Election was a monumental event, marked by unprecedented challenges and a deeply polarized nation. Incumbent President Donald J. Trump, of the Republican Party, vied for a second term against the Democratic nominee, former Vice President Joseph R. Biden Jr...</p>
-    </section>
+    <div class="translucent-container">
+        <section>
+            <h2>The 2020 U.S. Presidential Election: An Overview</h2>
+            <p>The 2020 U.S. Presidential Election was a monumental event, marked by unprecedented challenges and a deeply polarized nation. Incumbent President Donald J. Trump, of the Republican Party, vied for a second term against the Democratic nominee, former Vice President Joseph R. Biden Jr...</p>
+        </section>
+    </div>
 
     <div class="map-container">
         <img src="https://politics-static.cnn.io/2020/static-assets/images/headshots/biden-medium.png" alt="Image on Left">
@@ -72,52 +81,66 @@
         <img src="https://politics-static.cnn.io/2020/static-assets/images/headshots/trump-medium.png" alt="Image on Right">
     </div>
 
-    <section>
-        <h2>Election Results</h2>
-        <p>Following a tense post-election period marked by challenges to the results, Joseph R. Biden Jr. emerged as the victor, setting the stage for his inauguration on January 20, 2021...</p>
-    </section>
+    <div class="translucent-container">
+        <section>
+            <h2>Election Results</h2>
+            <p>Following a tense post-election period marked by challenges to the results, Joseph R. Biden Jr. emerged as the victor, setting the stage for his inauguration on January 20, 2021...</p>
+        </section>
+    </div>
 
     <div id="symbol_map2"></div>
 
-    <section>
-        <h2>State-wise Voting Margins & Strongholds</h2>
-        <p>Delve into our interactive bubble chart to explore the voting margins of each state. Sort data by Voting Eligible Population (VEP) and region to uncover patterns. The visualization highlights swing states, traditional Democratic strongholds, and Republican bastions...</p>
-    </section>
+    <div class="translucent-container">
+        <section>
+            <h2>State-wise Voting Margins & Strongholds</h2>
+            <p>Delve into our interactive bubble chart to explore the voting margins of each state. Sort data by Voting Eligible Population (VEP) and region to uncover patterns. The visualization highlights swing states, traditional Democratic strongholds, and Republican bastions...</p>
+        </section>
+    </div>
 
     <div id="symbol_map3"></div>
 
-    <section>
-        <h2>Candidate Approval Rating Trend</h2>
-        <p>Trace the approval ratings of Donald J. Trump and Joseph R. Biden Jr. leading up to the election. Key events, like Trump's declaration of a state of emergency due to the COVID-19 pandemic, the tragic death of George Floyd, and Trump's own COVID-19 diagnosis, significantly impacted public perception...</p>
-    </section>
+    <div class="translucent-container">
+        <section>
+            <h2>Candidate Approval Rating Trend</h2>
+            <p>Trace the approval ratings of Donald J. Trump and Joseph R. Biden Jr. leading up to the election. Key events, like Trump's declaration of a state of emergency due to the COVID-19 pandemic, the tragic death of George Floyd, and Trump's own COVID-19 diagnosis, significantly impacted public perception...</p>
+        </section>
+    </div>
 
     <div id="symbol_map4"></div>
 
-    <section>
-        <h2>House of Representatives Post-Election</h2>
-        <p>Following the election, the Democratic Party secured a majority in the House of Representatives with 222 seats to the Republican's 213. This majority enables the Democrats to exercise significant legislative power...</p>
-    </section>
+    <div class="translucent-container">
+        <section>
+            <h2>House of Representatives Post-Election</h2>
+            <p>Following the election, the Democratic Party secured a majority in the House of Representatives with 222 seats to the Republican's 213. This majority enables the Democrats to exercise significant legislative power...</p>
+        </section>
+    </div>
 
     <div id="symbol_map5"></div>
 
-    <section>
-        <h2>Senate Power Dynamics</h2>
-        <p>The Senate, post-election, comprises 48 Democrats, 50 Republicans, and 2 Independents. The Democrats, in caucus with the Independents and holding the Vice Presidential tie-breaker, command an effective majority of 51 to 50...</p>
-    </section>
+    <div class="translucent-container">
+        <section>
+            <h2>Senate Power Dynamics</h2>
+            <p>The Senate, post-election, comprises 48 Democrats, 50 Republicans, and 2 Independents. The Democrats, in caucus with the Independents and holding the Vice Presidential tie-breaker, command an effective majority of 51 to 50...</p>
+        </section>
+    </div>
 
     <div id="symbol_map6"></div>
 
-    <section>
-        <h2>Biden's Approval Rating Since Taking Office</h2>
-        <p>Since his inauguration, President Joe Biden's approval ratings have seen fluctuations. Notable events, such as the withdrawal from Afghanistan, the U.S.-Mexico border crisis, and rising inflation have influenced public opinion...</p>
-    </section>
+    <div class="translucent-container">
+        <section>
+            <h2>Biden's Approval Rating Since Taking Office</h2>
+            <p>Since his inauguration, President Joe Biden's approval ratings have seen fluctuations. Notable events, such as the withdrawal from Afghanistan, the U.S.-Mexico border crisis, and rising inflation have influenced public opinion...</p>
+        </section>
+    </div>
 
     <div id="symbol_map7"></div>
 
-    <section>
-        <h2>Approval Rating of Potential Republican Candidates</h2>
-        <p>As we look forward to the next election, Donald Trump emerges as a favorite among potential Republican candidates, closely followed by Ron DeSantis. The stage is set for a riveting electoral battle...</p>
-    </section>
+    <div class="translucent-container">
+        <section>
+            <h2>Approval Rating of Potential Republican Candidates</h2>
+            <p>As we look forward to the next election, Donald Trump emerges as a favorite among potential Republican candidates, closely followed by Ron DeSantis. The stage is set for a riveting electoral battle...</p>
+        </section>
+    </div>
 
     <div id="symbol_map8"></div>
 
@@ -176,7 +199,6 @@
 </body>
 
 </html>
-
 
 
 
