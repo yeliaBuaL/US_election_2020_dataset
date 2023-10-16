@@ -20,8 +20,15 @@
     <link rel="stylesheet" type="text/css" href="style.css" media="all">
 
     <style>
-        /* Custom CSS for center-aligning all elements */
-        body, h1, h2, p, section {
+        /* Custom CSS for center-aligning all elements and setting the background image */
+        body {
+            background-image: url('https://i.pinimg.com/originals/a1/49/8f/a1498f57bb8f4ecdf633482d9173c90d.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        h1, h2, p, section {
             text-align: center;
             max-width: 1000px;
             margin-left: auto;
@@ -56,64 +63,63 @@
 
     <section>
         <h2>The 2020 U.S. Presidential Election: An Overview</h2>
-        <p>The 2020 U.S. Presidential Election was a monumental event, marked by unprecedented challenges and a deeply polarized nation. As the world watched closely, the U.S. citizens made their voices heard, resulting in a change of leadership and setting the stage for the next four years.</p>
+        <p>The 2020 U.S. Presidential Election was a monumental event, marked by unprecedented challenges and a deeply polarized nation. Incumbent President Donald J. Trump, of the Republican Party, vied for a second term against the Democratic nominee, former Vice President Joseph R. Biden Jr...</p>
     </section>
 
-    <!-- Map container -->
     <div class="map-container">
         <img src="https://politics-static.cnn.io/2020/static-assets/images/headshots/biden-medium.png" alt="Image on Left">
         <div id="symbol_map1"></div>
         <img src="https://politics-static.cnn.io/2020/static-assets/images/headshots/trump-medium.png" alt="Image on Right">
     </div>
 
+    <section>
+        <h2>Election Results</h2>
+        <p>Following a tense post-election period marked by challenges to the results, Joseph R. Biden Jr. emerged as the victor, setting the stage for his inauguration on January 20, 2021...</p>
+    </section>
+
     <div id="symbol_map2"></div>
 
     <section>
-        <h2>Election Results</h2>
-        <p>The 2020 election results unveiled a close race. The choropleth map and bar chart depict the distribution of Electoral College votes across states. With a decisive win in key battleground states, the Democratic nominee, Joseph R. Biden Jr., secured the presidency.</p>
+        <h2>State-wise Voting Margins & Strongholds</h2>
+        <p>Delve into our interactive bubble chart to explore the voting margins of each state. Sort data by Voting Eligible Population (VEP) and region to uncover patterns. The visualization highlights swing states, traditional Democratic strongholds, and Republican bastions...</p>
     </section>
 
     <div id="symbol_map3"></div>
 
     <section>
-        <h2>About the Bubble Chart</h2>
-        <p>Dive deeper into the voting patterns with our interactive bubble chart. Here, you can explore the voting margins of each state, sort them by VEP (Voting Eligible Population) and region. Notice the swing states that played pivotal roles, as well as states that historically lean Democratic or Republican. This chart paints a comprehensive picture of the nation's voting behavior.</p>
+        <h2>Candidate Approval Rating Trend</h2>
+        <p>Trace the approval ratings of Donald J. Trump and Joseph R. Biden Jr. leading up to the election. Key events, like Trump's declaration of a state of emergency due to the COVID-19 pandemic, the tragic death of George Floyd, and Trump's own COVID-19 diagnosis, significantly impacted public perception...</p>
     </section>
 
     <div id="symbol_map4"></div>
 
     <section>
-        <h2>Candidate Approval Rating Trend</h2>
-        <p>The approval ratings of both Biden and Trump experienced fluctuations leading up to the election. Events like Trump declaring a state of emergency for the COVID-19 pandemic negatively impacted his approval. In contrast, the tragic death of George Floyd shifted some public sentiment towards Biden. Trump's personal battle with COVID-19 further influenced public opinion. Explore the trends and see how external events shaped the nation's perception.</p>
+        <h2>House of Representatives Post-Election</h2>
+        <p>Following the election, the Democratic Party secured a majority in the House of Representatives with 222 seats to the Republican's 213. This majority enables the Democrats to exercise significant legislative power...</p>
     </section>
 
     <div id="symbol_map5"></div>
 
     <section>
-        <h2>House of Representatives Post-Election</h2>
-        <p>Post-election, the Democrats secured a slim majority in the House of Representatives with 222 seats to the Republicans' 213. This majority grants the Democrats significant power in shaping legislative agendas and advancing their policy priorities.</p>
+        <h2>Senate Power Dynamics</h2>
+        <p>The Senate, post-election, comprises 48 Democrats, 50 Republicans, and 2 Independents. The Democrats, in caucus with the Independents and holding the Vice Presidential tie-breaker, command an effective majority of 51 to 50...</p>
     </section>
 
     <div id="symbol_map6"></div>
 
     <section>
-        <h2>Senate Power Dynamics</h2>
-        <p>The Senate saw a close division with 48 Democrats, 50 Republicans, and 2 Independents. However, the Democrats, in caucus with the Independents and with the Vice President's tie-breaking vote, effectively have a majority of 51 to 50. This dynamic is crucial for legislative decisions and confirms the Vice President's influential role in the Senate.</p>
+        <h2>Biden's Approval Rating Since Taking Office</h2>
+        <p>Since his inauguration, President Joe Biden's approval ratings have seen fluctuations. Notable events, such as the withdrawal from Afghanistan, the U.S.-Mexico border crisis, and rising inflation have influenced public opinion...</p>
     </section>
 
     <div id="symbol_map7"></div>
 
     <section>
-        <h2>Biden's Approval Rating Since Office</h2>
-        <p>Since taking office, President Biden's approval ratings have seen shifts. While he began with a favorable rating, subsequent events like the Afghanistan withdrawal, US-Mexico border crisis, and rising inflation have impacted public sentiment. Analyze the trends and understand the events that influence presidential approval ratings.</p>
+        <h2>Approval Rating of Potential Republican Candidates</h2>
+        <p>As we look forward to the next election, Donald Trump emerges as a favorite among potential Republican candidates, closely followed by Ron DeSantis. The stage is set for a riveting electoral battle...</p>
     </section>
 
     <div id="symbol_map8"></div>
-
-    <section>
-        <h2>Approval Ratings of Potential Republican Candidates</h2>
-        <p>As the next election cycle approaches, the spotlight is on potential Republican candidates. Prominent figures include Donald Trump, Ron DeSantis, Nikki Haley, Vivek Ramaswamy, Mike Pence, and Robert F. Kennedy. Currently, Donald Trump leads in approval, with DeSantis following closely. Explore the dynamics and public sentiment towards these potential contenders.</p>
-    </section>
 
     <script type="text/javascript">
         // Load and display the first visualization (results.json)
@@ -170,7 +176,6 @@
 </body>
 
 </html>
-
 
 
 
