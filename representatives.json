@@ -1,7 +1,6 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "config": {"view": {"stroke": ""}},
-    "title": "House of Representatives Seat Distribution",
     "width": 1000,
     "height": 200,
     "data": {
