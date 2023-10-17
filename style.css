@@ -20,6 +20,10 @@ body, html {
     width: 1200px;
     margin: 20px auto;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 /* Text alignment */
@@ -29,12 +33,13 @@ h1, h2, p, section {
 }
 
 /* Map container styles */
-.map-container {
+.map-container, #symbol_map1, #symbol_map2, #symbol_map3, #symbol_map4, #symbol_map5, #symbol_map6, #symbol_map7, #symbol_map8 {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-bottom: 20px;
 }
+
 
 /* Map images styles */
 .map-container img {
