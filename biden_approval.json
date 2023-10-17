@@ -3,7 +3,6 @@
     "description": "Plot showing a 30 day rolling average of 'yes' and 'no' polling values.",
     "width": 1000,
     "height": 400,
-    "title": "Joe Biden's Approval Rating While in Office",
     "data": {"url": "https://raw.githubusercontent.com/yeliaBuaL/US_election_2020_dataset/main/president_approval_polls.csv"},
     "transform": [
       {
