@@ -1,6 +1,6 @@
 /* Setting the default font for all text elements */
 body, h1, h2, p, section {
-    font-family: 'Helvetica', sans-serif;
+    font-family: 'Georgia', serif;
 }
 
 /* Background styles */
