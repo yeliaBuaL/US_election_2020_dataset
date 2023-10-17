@@ -3,7 +3,6 @@
     "description": "Scatterplot with a 30-day rolling mean for Biden (D) and Trump (R) approval ratings.",
     "width": 1000,
     "height": 400,
-    "title": "Biden Vs. Trump Approval Ratings Pre-Election",
     "data": {"url": "https://raw.githubusercontent.com/yeliaBuaL/US_election_2020_dataset/main/polls.csv"},
     "transform": [
       {
