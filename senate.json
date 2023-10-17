@@ -1,7 +1,6 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "config": {"view": {"stroke": ""}},
-    "title": "Senate Seat Distribution",
     "width": 800,
     "height": 250,
     "data": {
